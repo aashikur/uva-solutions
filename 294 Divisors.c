@@ -3,30 +3,32 @@
 
 int main()
 {
-    int div,L,H, cnt, n, i, j, small = 9999999999,max = 0;
-    scanf("%d %d",&L,&H);
-    div = H;
+    int T, div,L,H, cnt, n, i, j,small,max;
+    scanf("%d",&T);
 
-    for(j = div; j>=L; j--)
+    while(T--)
     {
-        cnt = 0;
-        for( i = 1; i<=sqrt(j); i++)
-        {
-            if(j%i==0)
-            {
-                n = j/i;
-                cnt += (n==i)? 1 : 2;
-                if(max<cnt) max = cnt;
-                if(cnt == max) small = j;
+    small = 9999999999; max = 0;
+    scanf("%d %d",&L,&H);
+        div = H;
 
-              //    printf("(%d, %d)\n",i, n);
+        for(j = div; j>=L; j--)
+        {
+            cnt = 0;
+            for( i = 1; i<=sqrt(j); i++)
+            {
+                if(j%i==0)
+                {
+                    n = j/i;
+                    cnt += (n==i)? 1 : 2;
+                    if(max<cnt) max = cnt;
+                    if(cnt == max) small = j;
+                }
             }
         }
-      //  printf("%d has %d Divisor\n\n",j,cnt);
+        printf("Between %d and %d, %d has a maximum of %d divisors.\n",L,H,small,max);
 
     }
-    printf("Between %d and %d, %d has a maximum of %d divisors.\n",L,H,small,max);
-
 
 
     return 0;
