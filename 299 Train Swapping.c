@@ -3,7 +3,7 @@
 
 int main()
 {
-    int NumOfArry;
+    int NumOfArry; 
     scanf("%d",&NumOfArry);
     int max = 1, num[max],i,temp,swif, SwifCnt = 0;
 
