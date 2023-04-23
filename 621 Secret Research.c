@@ -20,7 +20,6 @@ int main()
         else ans = '*';
 
         printf("%c\n",ans);
-
     }
 
 
