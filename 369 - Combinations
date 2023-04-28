@@ -2,8 +2,8 @@
 
 int main()
 {
-    int i,N,M;
-    long long int  sum,sum2;
+    int i,N,M,index;
+    double  sum,sum2;
 
 
     while(1)
@@ -11,18 +11,22 @@ int main()
         scanf("%d %d",&N,&M);
         if(N==0 && M==0) break;
 
+        index = ((N-M) > M )? N-M : M;
+
         sum = 1,sum2 = 1;
 
-        for( i = N-M + 1; i<=N; i++)
+        for( i = index + 1; i<=N; i++)
         {
             sum *= i;
         }
-        for(i = 1 ; i<=M; i++)
+        index = ((N-M) > M )? M: N - M;
+
+        for(i = 1 ; i<=index; i++)
         {
             sum2 *=i;
         }
 
-        printf("%d things taken %d at a time is %lld exactly.\n",N,M,sum/sum2);
+        printf("%d things taken %d at a time is %.0lf exactly.\n",N,M,sum/sum2);
     }
 
     return 0;
