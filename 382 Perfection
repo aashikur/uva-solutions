@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    int num,i, sum ,x,space,flg = 1;
+
+    while( scanf("%d",&num) )
+    {
+        if(num == 0) break;
+        if(flg)  printf("PERFECTION OUTPUT\n");
+        flg = 0, sum = 0;
+        for(i = 2; i<=sqrt(num); i++){
+            if(num%i == 0)
+            {    //  printf("%d  ",i);       // for test
+                //   printf("%d\n", num/i); // for test
+                sum += i + num/i;
+            }
+        }
+
+        x = sqrt(num);
+
+        if(x*x == num) sum -= sqrt(num);
+        sum++;
+         // printf("sum: %d\n",sum);// for test
+        x = log10(num)+1;
+        space = 5 - x;
+
+        while(space--) printf(" ");
+
+        if(num == sum)
+            printf("%d  PERFECT\n", num);
+        else if(num > sum)
+            printf("%d  DEFICIENT\n", num);
+        else
+            printf("%d  ABUNDANT\n", num);
+
+    }
+    printf("END OF OUTPUT\n");
+
+    return 0;
+}
