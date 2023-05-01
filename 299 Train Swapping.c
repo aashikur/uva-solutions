@@ -1,41 +1,37 @@
 #include <stdio.h>
-#include <math.h>
 
 int main()
 {
-    int NumOfArry; 
-    scanf("%d",&NumOfArry);
-    int max = 1, num[max],i,temp,swif, SwifCnt = 0;
 
-    for(i = 0; i<NumOfArry; i++)
+    int max = 100, temp, cnt, run,i,test, num[max];
+    scanf("%d",&test);
+
+    while(test--)
     {
-        max++;
-        num[max];
-        scanf("%d",&num[i]);
-    }
-    swif = sizeof(num);
-//   printf("Aray has num: %d\n", swif);
-    while(swif--)
-    {
-        for(i = 0; i<swif+1; i++)
+        scanf("%d", &max);
+
+
+        for(i = 0 ; i<max ; i++)
+            scanf("%d",&num[i]);
+
+        run = max-1;
+        cnt = 0;
+        while(run--)
         {
-            if(num[i]< num[i+1])
+            for(i = 0; i<max-1; i++)
             {
-                temp = num[i];
-                num[i] = num[i+1];
-                num[i+1] = temp;
-                SwifCnt++;
+                if(num[i] > num[i+1])
+                {
+                    cnt++;
+                    temp = num[i];
+                    num[i] = num[i+1];
+                    num[i+1] = temp;
+                }
             }
         }
+
+        printf("Optimal train swapping takes %d swaps.\n",cnt);
     }
-    for(i = 0; i<NumOfArry; i++)
-    {
-     //   printf("%d ",num[i]);
-    }
-    printf("Optimal train swapping takes %d swaps.",SwifCnt);
-
-
-
 
     return 0;
 }
