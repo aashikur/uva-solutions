@@ -1,12 +1,25 @@
 #include<stdio.h>
 
+int myFunction(int x,int y);
+
 int main()
 {
-
-    int x,y,i,temp,n,cycle,MaxCycle,swift;
-
+    int x,y,MaxCycle_inRange;
+    
     while(scanf("%d %d",&x,&y)!= EOF)
     {
+        MaxCycle_inRange = myFunction(x,y);
+        printf("%d %d %d\n",x,y,MaxCycle_inRange);
+    }
+
+    return 0;
+}
+
+
+
+
+int myFunction(int x,int y){
+    int i,temp,n,cycle,MaxCycle,swift;
         swift = 0;
         if(x>y)
         {
@@ -37,11 +50,10 @@ int main()
         }
 
         if(swift == 1)
-            printf("%d %d %d\n",y,x,MaxCycle);
-        else
-            printf("%d %d %d\n",x,y,MaxCycle);
-    }
-
-    return 0;
-
+        {
+            temp = x;
+            x = y ;
+            y = temp;
+        }
+        return MaxCycle;
 }
